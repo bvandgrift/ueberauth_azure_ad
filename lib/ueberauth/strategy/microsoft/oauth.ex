@@ -7,17 +7,22 @@ defmodule Ueberauth.Strategy.Microsoft.OAuth do
   @defaults [
     strategy: __MODULE__,
     site: "https://graph.microsoft.com",
-    authorize_url: "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
-    token_url: "https://login.microsoftonline.com/common/oauth2/v2.0/token",
     request_opts: [ssl_options: [versions: [:"tlsv1.2"]]]
   ]
 
   def client(opts \\ []) do
     config = Application.get_env(:ueberauth, Ueberauth.Strategy.Microsoft.OAuth)
 
+    IO.inspect config
+    urls = [
+      authorize_url: "https://login.microsoftonline.com/#{config[:tenant_id]}/oauth2/v2.0/authorize",
+      token_url: "https://login.microsoftonline.com/#{config[:tenant_id]}/oauth2/v2.0/token",
+    ]
+
     @defaults
     |> Keyword.merge(config)
     |> Keyword.merge(opts)
+    |> Keyword.merge(urls)
     |> Client.new()
   end
 

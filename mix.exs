@@ -2,8 +2,8 @@ defmodule UeberauthMicrosoft.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ueberauth_microsoft,
-     version: "0.4.0",
+    [app: :ueberauth_microsoft_single_tenant,
+     version: "0.4.1",
      elixir: "~> 1.4",
      description: description(),
      package: package(),
@@ -38,13 +38,13 @@ defmodule UeberauthMicrosoft.Mixfile do
   end
 
   defp description do
-    "Microsoft Strategy for Überauth"
+    "Microsoft Strategy for Überauth (v2, single tenant)"
   end
 
   defp package do
-    [name: :ueberauth_microsoft,
-     maintainers: ["swelham"],
+    [name: :ueberauth_microsoft_single_tenant,
+     maintainers: ["bvandgrift"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/swelham/ueberauth_microsoft"}]
+     links: %{"GitHub" => "https://github.com/bvandgrift/ueberauth_microsoft_v2"}]
   end
 end

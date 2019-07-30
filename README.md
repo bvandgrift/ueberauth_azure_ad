@@ -2,6 +2,8 @@
 
 > Microsoft OAuth2 strategy for Überauth.
 
+Forked in a hurry from `swelham/ueberauth_microsoft`.
+
 ## Installation
 
 1. Setup your application at the new [Microsoft app registration portal](https://apps.dev.microsoft.com).
@@ -36,7 +38,8 @@
     ```elixir
     config :ueberauth, Ueberauth.Strategy.Microsoft.OAuth,
       client_id: System.get_env("MICROSOFT_CLIENT_ID"),
-      client_secret: System.get_env("MICROSOFT_CLIENT_SECRET")
+      client_secret: System.get_env("MICROSOFT_CLIENT_SECRET"),
+      tenant_id: System.get_env("MICROSOFT_TENANT_ID")
     ```
 
 1.  Include the Überauth plug in your controller:
