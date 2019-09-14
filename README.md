@@ -1,18 +1,20 @@
-# Überauth Microsoft Single Tenant
+# Überauth Strategy for Azure AD v2.0, Single Tenant OAuth2
 
-> Microsoft Single Tenant OAuth2 strategy for Überauth.
+A simple implementation of OAuth that includes the `tenant_id` in the 
+OAuth2 endpoint, facilitating the Microsoft identity platform version 2.
 
-Forked in a hurry from `swelham/ueberauth_microsoft`, with much gratitude.
+Originally forked in a hurry from [swelhan/ueberauth_microsoft](http://github.com/swelham/ueberauth_microsoft),
+with much gratitude.
 
 ## Installation
 
 1. Setup your application at the new [Microsoft app registration portal](https://apps.dev.microsoft.com).
 
-1. Add `:ueberauth_microsoft_single_tenant` to your list of dependencies in `mix.exs`:
+1. Add `:ueberauth_azure_ad` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:ueberauth_microsoft_single_tenant, "~> 0.4"}]
+      [{:ueberauth_azure_ad, "~> 0.5"}]
     end
     ```
 
@@ -20,7 +22,7 @@ Forked in a hurry from `swelham/ueberauth_microsoft`, with much gratitude.
 
     ```elixir
     def application do
-      [applications: [:ueberauth_microsoft_single_tenant]]
+      [applications: [:ueberauth_azure_ad]]
     end
     ```
 
@@ -29,17 +31,17 @@ Forked in a hurry from `swelham/ueberauth_microsoft`, with much gratitude.
     ```elixir
     config :ueberauth, Ueberauth,
       providers: [
-        microsoft: {Ueberauth.Strategy.MicrosoftSingleTenant, []}
+        azure: {Ueberauth.Strategy.AzureAD, []}
       ]
     ```
 
 1.  Update your provider configuration:
 
     ```elixir
-    config :ueberauth, Ueberauth.Strategy.MicrosoftSingleTenant.OAuth,
-      client_id: System.get_env("MICROSOFT_CLIENT_ID"),
-      client_secret: System.get_env("MICROSOFT_CLIENT_SECRET"),
-      tenant_id: System.get_env("MICROSOFT_TENANT_ID")
+    config :ueberauth, Ueberauth.Strategy.AzureAD.OAuth,
+      client_id: System.get_env("AZURE_CLIENT_ID"),
+      client_secret: System.get_env("AZURE_CLIENT_SECRET"),
+      tenant_id: System.get_env("AZURE_TENANT_ID")
     ```
 
 1.  Include the Überauth plug in your controller:
@@ -71,7 +73,7 @@ For an example implementation see the [Überauth Example](https://github.com/ueb
 
 Depending on the configured url you can initial the request through:
 
-    /auth/microsoft
+    /auth/azure
 
 By default the scopes used are
 * openid
@@ -86,10 +88,10 @@ You can configure additional scopes to be used by passing the `extra_scopes` opt
 ```elixir
 config :ueberauth, Ueberauth,
   providers: [
-    microsoft: {Ueberauth.Strategy.Microsoft, [extra_scopes: "https://graph.microsoft.com/calendars.read"]}
+    azure: {Ueberauth.Strategy.AzureAD, [extra_scopes: "https://graph.microsoft.com/calendars.read"]}
   ]
 ```
 
 ## License
 
-Please see [LICENSE](https://github.com/ueberauth/ueberauth_microsoft/blob/master/LICENSE) for licensing details.
+Please see [LICENSE](https://github.com/bvandgrift/ueberauth_azure_ad/blob/master/LICENSE) for licensing details.

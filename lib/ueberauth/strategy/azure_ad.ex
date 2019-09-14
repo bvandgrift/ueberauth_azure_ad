@@ -1,11 +1,11 @@
-defmodule Ueberauth.Strategy.MicrosoftSingleTenant do
+defmodule Ueberauth.Strategy.AzureAD do
   use Ueberauth.Strategy,
     default_scope: "https://graph.microsoft.com/user.read openid email offline_access",
     uid_field: :id
 
   alias OAuth2.{Response, Error}
   alias Ueberauth.Auth.{Info, Credentials, Extra}
-  alias Ueberauth.Strategy.MicrosoftSingleTenant.OAuth
+  alias Ueberauth.Strategy.AzureAD.OAuth
 
   @doc """
   Handles initial request for Microsoft authentication.

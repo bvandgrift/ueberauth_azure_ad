@@ -24,13 +24,13 @@ config :logger, :console,
 
 config :ueberauth, Ueberauth,
   providers: [
-    microsoft: {Ueberauth.Strategy.MicrosoftSingleTenant, []}
+    azure: {Ueberauth.Strategy.AzureAD, []}
   ]
 
-config :ueberauth, Ueberauth.Strategy.MicrosoftSingleTenant.OAuth,
-  client_id: System.get_env("MICROSOFT_CLIENT_ID"),
-  client_secret: System.get_env("MICROSOFT_CLIENT_SECRET"),
-  tenant_id: System.get_env("MICROSOFT_TENANT_ID")
+config :ueberauth, Ueberauth.Strategy.AzureAD.OAuth,
+  client_id: System.get_env("AZURE_CLIENT_ID"),
+  client_secret: System.get_env("AZURE_CLIENT_SECRET"),
+  tenant_id: System.get_env("AZURE_TENANT_ID")
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason

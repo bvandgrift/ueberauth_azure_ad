@@ -1,6 +1,9 @@
 defmodule Thyme.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
+  @disable_ddl_transaction true
+  @disable_migration_lock true
+
   def change do
     create table(:users) do
       add :name, :string, null: false

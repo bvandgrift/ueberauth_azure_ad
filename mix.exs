@@ -1,9 +1,9 @@
-defmodule UeberauthMicrosoftSingleTenant.Mixfile do
+defmodule UeberauthAzureAD.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ueberauth_microsoft_single_tenant,
-     version: "0.4.3",
+    [app: :ueberauth_azure_ad,
+     version: "0.5.0",
      elixir: "~> 1.4",
      description: description(),
      package: package(),
@@ -32,19 +32,19 @@ defmodule UeberauthMicrosoftSingleTenant.Mixfile do
   defp deps do
     [
       {:oauth2, "~> 0.8"},
-      {:ueberauth, "~> 0.4"},
+      {:ueberauth, "~> 0.6"},
       {:ex_doc, ">= 0.19.0", only: :dev}
     ]
   end
 
   defp description do
-    "Microsoft Strategy for Überauth (v2, single tenant)"
+    "Azure AD (v2, single tenant) Strategy for Überauth"
   end
 
   defp package do
-    [name: :ueberauth_microsoft_single_tenant,
+    [name: :ueberauth_azure_ad,
      maintainers: ["bvandgrift"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/bvandgrift/ueberauth_microsoft_single_tenant"}]
+     links: %{"GitHub" => "https://github.com/bvandgrift/ueberauth_azure_ad"}]
   end
 end
