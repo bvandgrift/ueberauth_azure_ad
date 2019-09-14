@@ -1,4 +1,4 @@
-defmodule Ueberauth.Strategy.Microsoft.OAuth do
+defmodule Ueberauth.Strategy.MicrosoftSingleTenant.OAuth do
   use OAuth2.Strategy
 
   alias OAuth2.Client
@@ -11,7 +11,7 @@ defmodule Ueberauth.Strategy.Microsoft.OAuth do
   ]
 
   def client(opts \\ []) do
-    config = Application.get_env(:ueberauth, Ueberauth.Strategy.Microsoft.OAuth)
+    config = Application.get_env(:ueberauth, Ueberauth.Strategy.MicrosoftSingleTenant.OAuth)
 
     IO.inspect config
     urls = [

@@ -1,9 +1,9 @@
-defmodule UeberauthMicrosoft.Mixfile do
+defmodule UeberauthMicrosoftSingleTenant.Mixfile do
   use Mix.Project
 
   def project do
     [app: :ueberauth_microsoft_single_tenant,
-     version: "0.4.1",
+     version: "0.4.3",
      elixir: "~> 1.4",
      description: description(),
      package: package(),
@@ -45,6 +45,6 @@ defmodule UeberauthMicrosoft.Mixfile do
     [name: :ueberauth_microsoft_single_tenant,
      maintainers: ["bvandgrift"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/bvandgrift/ueberauth_microsoft_v2"}]
+     links: %{"GitHub" => "https://github.com/bvandgrift/ueberauth_microsoft_single_tenant"}]
   end
 end

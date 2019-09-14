@@ -1,18 +1,18 @@
-# Überauth Microsoft
+# Überauth Microsoft Single Tenant
 
-> Microsoft OAuth2 strategy for Überauth.
+> Microsoft Single Tenant OAuth2 strategy for Überauth.
 
-Forked in a hurry from `swelham/ueberauth_microsoft`.
+Forked in a hurry from `swelham/ueberauth_microsoft`, with much gratitude.
 
 ## Installation
 
 1. Setup your application at the new [Microsoft app registration portal](https://apps.dev.microsoft.com).
 
-1. Add `:ueberauth_microsoft` to your list of dependencies in `mix.exs`:
+1. Add `:ueberauth_microsoft_single_tenant` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:ueberauth_microsoft, "~> 0.4"}]
+      [{:ueberauth_microsoft_single_tenant, "~> 0.4"}]
     end
     ```
 
@@ -20,7 +20,7 @@ Forked in a hurry from `swelham/ueberauth_microsoft`.
 
     ```elixir
     def application do
-      [applications: [:ueberauth_microsoft]]
+      [applications: [:ueberauth_microsoft_single_tenant]]
     end
     ```
 
@@ -29,14 +29,14 @@ Forked in a hurry from `swelham/ueberauth_microsoft`.
     ```elixir
     config :ueberauth, Ueberauth,
       providers: [
-        microsoft: {Ueberauth.Strategy.Microsoft, []}
+        microsoft: {Ueberauth.Strategy.MicrosoftSingleTenant, []}
       ]
     ```
 
 1.  Update your provider configuration:
 
     ```elixir
-    config :ueberauth, Ueberauth.Strategy.Microsoft.OAuth,
+    config :ueberauth, Ueberauth.Strategy.MicrosoftSingleTenant.OAuth,
       client_id: System.get_env("MICROSOFT_CLIENT_ID"),
       client_secret: System.get_env("MICROSOFT_CLIENT_SECRET"),
       tenant_id: System.get_env("MICROSOFT_TENANT_ID")

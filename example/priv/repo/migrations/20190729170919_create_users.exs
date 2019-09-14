@@ -1,0 +1,15 @@
+defmodule Thyme.Repo.Migrations.CreateUsers do
+  use Ecto.Migration
+
+  def change do
+    create table(:users) do
+      add :name, :string, null: false
+      add :email, :string, null: false
+      add :approver_id, references(:users)
+
+      timestamps()
+    end
+
+    create index(:users, [:email], concurrently: true)
+  end
+end
