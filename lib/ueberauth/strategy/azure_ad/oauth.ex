@@ -13,7 +13,6 @@ defmodule Ueberauth.Strategy.AzureAD.OAuth do
   def client(opts \\ []) do
     config = Application.get_env(:ueberauth, Ueberauth.Strategy.AzureAD.OAuth)
 
-    IO.inspect config
     urls = [
       authorize_url: "https://login.microsoftonline.com/#{config[:tenant_id]}/oauth2/v2.0/authorize",
       token_url: "https://login.microsoftonline.com/#{config[:tenant_id]}/oauth2/v2.0/token",
