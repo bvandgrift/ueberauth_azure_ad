@@ -12,7 +12,6 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <% IO.inspect @conn.assigns %>
             <%= if assigns[:current_user] do %>
               <li>
                 in as <%= @current_user.name %> <%= link("sign out", to: "/auth/logout", method: :post) %>
