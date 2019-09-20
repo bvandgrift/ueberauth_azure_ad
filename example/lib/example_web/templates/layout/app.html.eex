@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Example · Phoenix Framework</title>
+    <title>Example · Ueberauth Azure AD @ Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
@@ -12,7 +12,15 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <% IO.inspect @conn.assigns %>
+            <%= if assigns[:current_user] do %>
+              <li>
+                in as <%= @current_user.name %> <%= link("sign out", to: "/auth/logout", method: :post) %>
+              </li>
+              <li><a href="/secret">secret page</a></li>
+            <% else %>
+              <li><a href="/auth/azure">sign in</a></li>
+            <% end %>
           </ul>
         </nav>
         <a href="http://phoenixframework.org/" class="phx-logo">

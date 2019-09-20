@@ -17,7 +17,8 @@ defmodule ExampleWeb.AuthController do
     conn
     |> put_flash(:info, "See ya!")
     |> configure_session(drop: true)
-    |> redirect(to: "/")
+    |> put_view(ExampleWeb.PageView)
+    |> render("index.html")
   end
 
   def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
@@ -27,6 +28,7 @@ defmodule ExampleWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
+    # IO.inspect auth
     case InfoFromAuth.find_or_create(auth) do
       {:ok, user} ->
         User.find_or_create_from_auth(user)

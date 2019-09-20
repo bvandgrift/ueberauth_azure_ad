@@ -19,6 +19,12 @@ defmodule ExampleWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/secret", ExampleWeb do
+    pipe_through :browser
+
+    get "/", SecretController, :index
+  end
+
   scope "/auth", ExampleWeb do
     pipe_through :browser
 

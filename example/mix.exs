@@ -20,7 +20,7 @@ defmodule Example.MixProject do
   def application do
     [
       mod: {Example.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ueberauth, :uberauth_azure_ad]
+      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_azure_ad]
     ]
   end
 
@@ -43,9 +43,10 @@ defmodule Example.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:poison, "~> 3.1"},
       {:ueberauth, "~> 0.6"},
       # {:ueberauth_azure_ad, path: "../_build/dev/lib/ueberauth_azure_ad"}
-      {:ueberauth_azure_ad, git: "https://github.com/bvandgrift/ueberauth_azure_ad"}
+      {:ueberauth_azure_ad, path: "../"}
     ]
   end
 

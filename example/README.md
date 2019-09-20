@@ -1,4 +1,16 @@
-# Example
+# Ueberauth Azure AD Example
+
+If you do not have an Azure App registration set up, do so
+[here](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+Configure a redirect URI with http://localhost:4000/auth/azure/callback.
+
+Into your environment, throw your client id, client secret, and tenant_id:
+
+```bash
+  export AZURE_CLIENT_ID=<Application (client) ID>
+  export AZURE_CLIENT_SECRET=<your client secret>
+  export AZURE_TENANT_ID=<Directory (tenant) ID>
+```
 
 To start your Phoenix server:
 
@@ -7,11 +19,10 @@ To start your Phoenix server:
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+To check your Azure authentication, visit:
+[`localhost:4000/auth/azure`](http://localhost:4000/auth/azure) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
+## Learn more about Phoenix
 
   * Official website: http://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
