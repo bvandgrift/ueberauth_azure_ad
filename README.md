@@ -1,12 +1,24 @@
-# Überauth Strategy for Azure AD v2.0, Single Tenant OAuth2
+# About
+
+## Überauth Azure AD v2.0 Strategy
 
 A simple implementation of OAuth that includes the `tenant_id` in the 
-OAuth2 endpoint, facilitating the Microsoft identity platform version 2.
+OAuth2 endpoint, facilitating the Microsoft identity platform version 2. Apart
+from the configurable tenant ID, this simply extends the OAuth implementation.
 
 Originally forked in a hurry from [swelhan/ueberauth_microsoft](http://github.com/swelham/ueberauth_microsoft),
 with much gratitude.
 
-## Installation
+## License
+
+Please see [LICENSE](https://github.com/bvandgrift/ueberauth_azure_ad/blob/master/LICENSE) for licensing details.
+
+## Setup
+
+You can use this strategy by configuring it with your Azure AD tenant and secret
+information, then calling the local endpoints as follows:
+
+### Configuring
 
 1. Setup your application at the new [Microsoft app registration portal](https://apps.dev.microsoft.com).
 
@@ -69,7 +81,7 @@ with much gratitude.
 
 For an example implementation see the [Überauth Example](https://github.com/ueberauth/ueberauth_example) application.
 
-## Calling
+### Calling
 
 Depending on the configured url you can initial the request through:
 
@@ -92,6 +104,3 @@ config :ueberauth, Ueberauth,
   ]
 ```
 
-## License
-
-Please see [LICENSE](https://github.com/bvandgrift/ueberauth_azure_ad/blob/master/LICENSE) for licensing details.

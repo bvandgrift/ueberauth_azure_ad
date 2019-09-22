@@ -2,14 +2,21 @@ defmodule UeberauthAzureAD.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ueberauth_azure_ad,
-     version: "0.5.0",
-     elixir: "~> 1.4",
-     description: description(),
-     package: package(),
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :ueberauth_azure_ad,
+      version: "0.5.1",
+      elixir: "~> 1.4",
+      description: description(),
+      package: package(),
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps(),
+      docs: [
+        main: "readme",
+        extras: ["README.md"]
+      ]
+
+    ]
   end
 
   # Configuration for the OTP application
