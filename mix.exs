@@ -4,8 +4,8 @@ defmodule UeberauthAzureAD.Mixfile do
   def project do
     [
       app: :ueberauth_azure_ad,
-      version: "0.5.1",
-      elixir: "~> 1.4",
+      version: "0.5.2",
+      elixir: "~> 1.9",
       description: description(),
       package: package(),
       build_embedded: Mix.env == :prod,
