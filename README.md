@@ -6,6 +6,10 @@ A simple implementation of OAuth that includes the `tenant_id` in the
 OAuth2 endpoint, facilitating the Microsoft identity platform version 2. Apart
 from the configurable tenant ID, this simply extends the OAuth implementation.
 
+* author [bvandgrift](http://ben.vandgrift.com)
+* github
+  [bvandgrift/ueberauth_azure_ad](https://github.com/bvandgrift/ueberauth_azure_ad)
+
 Originally forked in a hurry from [swelhan/ueberauth_microsoft](http://github.com/swelham/ueberauth_microsoft),
 with much gratitude.
 
